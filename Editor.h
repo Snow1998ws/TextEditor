@@ -48,6 +48,7 @@ Editor::Editor()
 	linecount = 0;
 }
 
+//读入缓冲区
 void Editor::read()
 {
 	string line;
@@ -61,6 +62,7 @@ void Editor::read()
 	cout << "reading finished" << endl;
 }
 
+//显示文件内容
 void Editor::view()
 {
 	Node<String>* curr;
@@ -76,6 +78,7 @@ void Editor::view()
 	cout << linecount << ": " << Ptr->data.CStr() << endl;
 }
 
+//第一行
 void Editor::First()
 {
 	Ptr = list.head->next;
@@ -83,6 +86,7 @@ void Editor::First()
 	cout << linecount << ": " <<Ptr->data.CStr() << endl;
 }
 
+//最后一行
 void Editor::End()
 {
 	Ptr = list.head->prep;
@@ -90,6 +94,7 @@ void Editor::End()
 	cout << linecount << ": " << Ptr->data.CStr() << endl;
 }
 
+//下一行
 void Editor::Next()
 {
 	if (Ptr->next == list.head || Ptr->next == NULL)
@@ -102,6 +107,7 @@ void Editor::Next()
 	}
 }
 
+ //上一行
 void Editor::Prep()
 {
 	if (Ptr->prep == list.head || Ptr->prep == NULL)
@@ -114,6 +120,7 @@ void Editor::Prep()
 	}
 }
 
+ //跳到某一行
 void Editor::Skip()
 {
 	int position;
@@ -129,6 +136,7 @@ void Editor::Skip()
 	}
 }
 
+ //插入一行
 void Editor::insert()
 {
 	int position;
@@ -150,6 +158,7 @@ void Editor::insert()
 	}
 }
 
+ //删除当前行
 void Editor::Del()
 {
 	if (count < 1)
@@ -182,6 +191,7 @@ void Editor::Del()
 	}
 }
 
+//替换某一行
 void Editor::Change()
 {
 	int x;
@@ -202,6 +212,7 @@ void Editor::Change()
 	}
 }
 
+ //统计行数和字符数
 void Editor::Calculate()
 {
 	Node<String>* temp;
@@ -217,6 +228,7 @@ void Editor::Calculate()
 	cout << "character: " << sum << endl;
 }
 
+//字符串匹配
 void Editor::find()
 {
 	char a[50];
@@ -241,6 +253,7 @@ void Editor::find()
 		cout << "search false" << endl;
 }
 
+//字符串替换
 void Editor::sub()
 {
 	char a[50], b[50];
@@ -272,6 +285,7 @@ void Editor::sub()
 	}
 }
 
+//写入输出文件
 void Editor::write()
 {
 	Node<String>* temp;
